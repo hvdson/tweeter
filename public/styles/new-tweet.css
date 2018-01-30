@@ -1,23 +1,37 @@
-.container {
-  border-radius: 6px;
+.new-tweet {
+  border-radius: 4px;
   padding: 1em;
+  margin: 0 2em;
+  border: 1px solid #ccc;
+  background-color: #eee;
 }
 
-.container h2 {
-  margin: 0;
+.new-tweet h2 {
+  margin: auto;
 }
 
-.container textarea {
+.new-tweet textarea {
   padding: 6px;
+  margin: 5px auto;
   width: 100%;
+  display: block;
 }
 
-.container .counter {
+.new-tweet hr {
+  margin: 0 0 18px 0;
+}
+
+.new-tweet .counter {
+  font-style: italic;
   float: right;
+  margin: 5px 10px;
   /* text-align: right; */
 }
 
-.container .input {
-  float: left;
-  /* text-align: right; */
+.new-tweet input {
+  margin: 2px auto;
+}
+
+.container {
+  background-color: white
 }
