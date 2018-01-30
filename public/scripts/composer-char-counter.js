@@ -10,31 +10,20 @@ $(document).ready( () => {
   // don't need to look through every child node - jQuery functions do the heavy lifting
 
   $(".new-tweet textarea").on("keyup", function (event) {
-    console.log(event.target.value);
 
+    // refactoring code
+    const counter = $(".new-tweet .counter");
 
-    // curr length of textarea
-    // event.target.value.length;
-
-    // need to update the value of counter
+    // need to update the text of counter
     const textAreaLength = event.target.value.length;
 
+    // add a red class to the counter when the textarea is longer than 140 chars
     if (textAreaLength > 140) {
-      $(".new-tweet .counter").addClass("red-counter");
+      counter.addClass("red-counter");
     } else {
-      $(".new-tweet .counter").removeClass("red-counter");
+      // remove the class afterwards
+      counter.removeClass("red-counter");
     }
-
-    $(".new-tweet .counter").text(140 - textAreaLength);
-
-    // const currCount = parseInt($(".new-tweet .counter").text(), 10);
-
-    // $(".new-tweet .under-textarea .counter").value = $(".new-tweet .under-textarea .counter").value - event.target.value.length;
-
-    // console.log(event.target.value);
-    // const maxCount = parseInt($(".new-tweet .counter").text(), 10);
-
-
-
+    counter.text(140 - textAreaLength);
   });
 });
