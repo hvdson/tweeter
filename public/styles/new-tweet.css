@@ -1,0 +1,23 @@
+.container {
+  border-radius: 6px;
+  padding: 1em;
+}
+
+.container h2 {
+  margin: 0;
+}
+
+.container textarea {
+  padding: 6px;
+  width: 100%;
+}
+
+.container .counter {
+  float: right;
+  /* text-align: right; */
+}
+
+.container .input {
+  float: left;
+  /* text-align: right; */
+}
