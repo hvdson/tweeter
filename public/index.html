@@ -53,27 +53,31 @@
 
       </section>
 
-      <section id="tweet-feed">
-        <article class="tweet">
+      <!-- had to change b/c app.js calls it tweets-container -->
+      <section id="tweets-container">
 
+        <article class="tweet">
+          <!-- HEADER contains avatar image, username & handle, -->
           <header>
             <img class="avatar" src="https://pbs.twimg.com/profile_images/874276197357596672/kUuht00m_bigger.jpg">
             <span class="username"> Donald Trump </span>
             <span class="tweeter-handle"> @RealDonaldTrump </span>
           </header> 
 
+          <!-- where the actual tweet message is -->
           <p class="tweet-text">Why would Kim Jong-un insult me by calling me "old," when I would NEVER call him "short and fat?" Oh well, I try so hard to be his friend - and maybe someday that will happen!</p>
 
-          <!-- <hr/> -->
+          <!-- FOOTER contains time tweet was created & icons-->
           <footer>
             <span class="time-of-tweet"> 10 days ago </span>
             <!-- have to put in reverse order for float to work -->
               <i id="flag" class="fa fa-flag" aria-hidden="true"></i>
               <i id="retweet" class="fa fa-retweet" aria-hidden="true"></i>
               <i id="like" class="fa fa-heart" aria-hidden="true"></i>
-
           </footer>
+
         </article>
+
       </section>
       
       <!-- For testing scrolling -->
