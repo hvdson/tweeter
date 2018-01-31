@@ -2,12 +2,13 @@
   border-radius: 4px;
   padding: 1em;
   margin: 0 2em;
-  border: 1px solid #ccc;
+  border: 1px solid #eee;
   background-color: #eee;
 }
 
 .new-tweet h2 {
-  margin: auto;
+  margin: 0 0 18px 0;
+  border-bottom: 1px solid #ccc;
 }
 
 .new-tweet textarea {
@@ -17,9 +18,10 @@
   display: block;
 }
 
-.new-tweet hr {
+/* .new-tweet hr {
   margin: 0 0 18px 0;
-}
+  
+} */
 
 .new-tweet .counter {
   font-style: italic;

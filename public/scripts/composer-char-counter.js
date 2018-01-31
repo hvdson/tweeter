@@ -9,7 +9,7 @@ $(document).ready( () => {
   // no need to loop
   // don't need to look through every child node - jQuery functions do the heavy lifting
 
-  $(".new-tweet textarea").on("keyup", function (event) {
+  $(".new-tweet textarea").on("input", function (event) {
 
     // refactoring code
     const counter = $(".new-tweet .counter");
@@ -24,6 +24,8 @@ $(document).ready( () => {
       // remove the class afterwards
       counter.removeClass("red-counter");
     }
+
     counter.text(140 - textAreaLength);
   });
+
 });
