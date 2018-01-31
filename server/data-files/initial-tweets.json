@@ -1,6 +1,21 @@
 [
   {
     "user": {
+      "name": "Donald Trump",
+      "avatars": {
+        "small":   "https://pbs.twimg.com/profile_images/874276197357596672/kUuht00m_bigger.jpg",
+        "regular": "https://pbs.twimg.com/profile_images/874276197357596672/kUuht00m_bigger.jpg",
+        "large":   "https://pbs.twimg.com/profile_images/874276197357596672/kUuht00m_bigger.jpg"
+      },
+      "handle": "@RealDonaldTrump"
+    },
+    "content": {
+      "text": "Why would Kim Jong-un insult me by calling me 'old,' when I would NEVER call him 'short and fat?' Oh well, I try so hard to be his friend - and maybe someday that will happen!"
+    },
+    "created_at": 1461116200000
+  },
+  {
+    "user": {
       "name": "Newton",
       "avatars": {
         "small":   "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_50.png",
@@ -10,7 +25,7 @@
       "handle": "@SirIsaac"
     },
     "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
+      "text": "<script>alert('uh oh!')</script>"
     },
     "created_at": 1461116232227
   },
