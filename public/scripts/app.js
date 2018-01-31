@@ -69,6 +69,9 @@
 // ];
 
 $(document).ready(function() {
+
+// Handlebars for refactoring
+
 // Parameters: tweet object;
 // returns: jQuery object representing a new tweet in the same structure as <article class="tweet">
   function createTweetElement (data) {
@@ -118,23 +121,36 @@ $(document).ready(function() {
 
 
   function renderTweets(tweets) {
-
     // now that AJAX is implemented - need to clear existing list first
-    // $('#tweets-container').clear();
-
     // loops through tweets
+    
     for (let tweet of tweets) {
       // calls createTweetElement for each tweet
       let newTweet = createTweetElement(tweet);
       // takes return value and appends it to the tweets container
-      $('#tweets-container').append(newTweet);
+      $('#tweets-container').prepend(newTweet);
     }
   }
+
+  // other method for showing tweet first - traverse backwards
+
+  //   for (let tweet = tweets.length - 1; tweet >= 0; tweet--) {
+  //     // calls createTweetElement for each tweet
+  //     let newTweet = createTweetElement(tweets[tweet]);
+  //     // takes return value and appends it to the tweets container
+  //     $('#tweets-container').append(newTweet);
+  //   }
+  // }
+
+
   // renderTweets(data);
 
 
   // fetches tweets from /tweets page
   function loadTweets() {
+    
+    $('#tweets-container').empty();
+  
     // makes the request to /tweets
     $.ajax({
       url: '/tweets',
