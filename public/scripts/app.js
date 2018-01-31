@@ -134,7 +134,7 @@ $(document).ready(function() {
 
 
   // fetches tweets from /tweets page
-  function loadTweets(data) {
+  function loadTweets() {
     // makes the request to /tweets
     $.ajax({
       url: '/tweets',
@@ -147,21 +147,37 @@ $(document).ready(function() {
       }
     });
   }
-
-
+ 
 
   $(".new-tweet form").on("submit", function(event) {
+    
     // 1. prevent the default behaviour
     event.preventDefault();
     // 2. get the data of the form
-    const data = $(".new-tweet form").serialize();
-    // 3. submit using ajax
-    loadTweets(data);
-    // console.log(data);
+    // const data = $(".new-tweet form").serialize();
+    const data = $(this).serialize();
+    // 3. add tweet to database using create new tweet element
+    // console.log("Step 3: appending new tweet to database - ", data);
+
+    const tweetLength = $(this).find("#tweet-text-area").val().length;
+    
+    // this is async, you're going to need to pass it a callback function.
+    // INside the callback, update teh twee
+    // The callback function in this case will only get called after the ajax HTTP request is done
+    // It's gone to the server and back.
+
+    // 3. conditionals go here: check if data is not empty && data.length < 140
+    if (tweetLength > 0 && tweetLength <= 140) {
+      // 4. submit using ajax
+      $.post("/tweets", data).done(function() {
+        // 5. rerender the new tweet
+        loadTweets();
+      });
+    } else {
+      // replace this later with toastr
+      alert("TOO MUCH MY GUY");
+    }
 
   });
-
-
-
 
 });
