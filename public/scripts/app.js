@@ -152,7 +152,7 @@ $(document).ready(function() {
   // fetches tweets from /tweets page
   function loadTweets() {
     
-    $('#tweets-container').empty();
+    // $('#tweets-container').empty();
   
     // makes the request to /tweets
     $.ajax({
@@ -161,13 +161,11 @@ $(document).ready(function() {
       success: function (tweets) {
         console.log('Success: ', tweets);
         renderTweets(tweets);
-        
         // $button.replaceWith(morePostsHtml);
       }
     });
   }
  
-
   $(".new-tweet form").on("submit", function(event) {
     
     // 1. prevent the default behaviour
@@ -189,7 +187,6 @@ $(document).ready(function() {
     if (tweetLength > 0 && tweetLength <= 140) {
       // 4. submit using ajax
       
-
       $.post("/tweets", data).done(function() {
         // 5. rerender the new tweet
         // $(#twe)
@@ -205,5 +202,4 @@ $(document).ready(function() {
     $(".counter").text("140");
 
   });
-
 });

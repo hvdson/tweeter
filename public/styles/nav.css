@@ -44,6 +44,7 @@ p {
   background-color: #e8fdff;
   border-radius: 4px;
   padding: 1em;
+  outline: 0;
   /* color: #e8fdff; */
 
 }
@@ -53,4 +54,5 @@ p {
   border-radius: 4px;
   background-color: #e8fdff;
   color: #00a087;
+  outline: 0;
 }
