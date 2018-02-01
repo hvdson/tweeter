@@ -11,6 +11,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 // The in-memory database of tweets. It's a basic object with an array in it.
+
+// UPDATING TO USE WITH DATABASE
+// ------------------------------------------------------------------------------------------
+// TODO - STEP 1:
+// Modify server/index.js to remove the in-memory db. Instead, connect to Mongo, and once it's connected,
+//  pass the Mongo db into the server/lib/data-helpers.js factory function instead.
+// ------------------------------------------------------------------------------------------
+
 const db = require("./lib/in-memory-db");
 
 // The `data-helpers` module provides an interface to the database of tweets.
@@ -28,6 +36,13 @@ const tweetsRoutes = require("./routes/tweets")(DataHelpers);
 
 // Mount the tweets routes at the "/tweets" path prefix:
 app.use("/tweets", tweetsRoutes);
+
+// ------------------------------------------------------------------------------------------
+// TODO - STEP 6:
+// If you haven't already: make sure your app works the way you did before you started.
+// Restart it, and bask in the glory of persistent data storage.
+// ------------------------------------------------------------------------------------------
+
 
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);
