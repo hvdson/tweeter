@@ -20,10 +20,12 @@ MongoClient.connect(MONGODB_URI, (err, db) => {
       throw err;
     }
 
-    // ==> Fair warning: This is going to log a lot of stuff...
-    console.log("for each item yielded by the cursor:");
-    results.each( (err, item) => {
-      console.log(" ", item);
+    // we could just slurp the items into an array
+    results.toArray( (err, resultsArray) => {
+      if (err) {
+        throw err;
+      }
+      console.log("Results to array:\n", resultsArray);
     });
 
     // ==> This is inside this callback now. Think about it:
