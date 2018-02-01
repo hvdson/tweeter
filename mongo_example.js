@@ -13,23 +13,17 @@ MongoClient.connect(MONGODB_URI, (err, db) => {
   //     starting here.
   console.log(`Connected to mongodb: ${MONGODB_URI}`);
 
-  // ==> Let's "get all the tweets". In Mongo-speak, we "find" them.
-  db.collection("tweets").find({}, (err, results) => {
+  // ==> We can just get the results as an array all at once:
+  db.collection("tweets").find().toArray( (err, results) => {
     // Lazy error handling:
     if (err) {
       throw err;
     }
-
-    // we could just slurp the items into an array
-    results.toArray( (err, resultsArray) => {
-      if (err) {
-        throw err;
-      }
-      console.log("Results to array:\n", resultsArray);
-    });
-
+  
+    console.log(".find chained to .toArray:\n", results);
     // ==> This is inside this callback now. Think about it:
     // This is now the "end of the program", right?
     db.close();
   });
+
 });
