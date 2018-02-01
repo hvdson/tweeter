@@ -47,10 +47,10 @@ MongoClient.connect(MONGODB_URI, (err, db) => {
 
   // Mount the tweets routes at the "/tweets" path prefix:
   app.use("/tweets", tweetsRoutes(DataHelpers(db)));
-
-  db.close();
-
+  
+  // need to close database connection after using
 });
+
 
 // ------------------------------------------------------------------------------------------
 // TODO - STEP 6:
