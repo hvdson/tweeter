@@ -8,7 +8,7 @@ const tweetsRoutes  = express.Router();
 module.exports = function(DataHelpers) {
 
   // ------------------------------------------------------------------------------------------
-  // TODO - STEP 3:
+  // STEP 3:
   // Test the GET /tweets/ route (with curl, your browser URL bar, and/or your frontend app)
   // to make sure it still works.
   // ------------------------------------------------------------------------------------------

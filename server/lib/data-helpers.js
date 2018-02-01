@@ -41,15 +41,23 @@ module.exports = function makeDataHelpers(db) {
 
     // UPDATING TO USE WITH DATABASE
     // ------------------------------------------------------------------------------------------
-    // TODO - STEP 4:
+    // STEP 4:
     // Modify saveTweet in server/lib/data-helpers.js to use Mongo (try Mongo's insertOne())
     // ------------------------------------------------------------------------------------------
 
     // Saves a tweet to `db`
+    // WRITE of CRUD operations
+    // accepts a newTweet - as handled by the .post route in tweets.js
     saveTweet: function(newTweet, callback) {
-      simulateDelay(() => {
-        db.tweets.push(newTweet);
-        callback(null, true);
+      // insertOne takes the obj to insert and a callback
+      // newTweet is already an obj so send as is;
+      db.collection("tweets").insertOne(newTweet, (err) => {
+        // error handling - not sure if needed: *consider "end user" code should deal with errors
+        if (err) {
+          callback(err);
+        }
+        console.log("Tweets bin got send :)");
+        callback(null);
       });
     },
 
@@ -70,6 +78,7 @@ module.exports = function makeDataHelpers(db) {
           callback(err);
         }
         // assuming tweets is an entire array - .sort() sorts the array IN PLACE
+        console.log("Tweets bin get got :)");
         callback(null, tweets);
         // callback(null, tweets.sort(sortNewestFirst));
         // tweets are received as an Array then sorted

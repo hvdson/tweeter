@@ -47,13 +47,13 @@ MongoClient.connect(MONGODB_URI, (err, db) => {
 
   // Mount the tweets routes at the "/tweets" path prefix:
   app.use("/tweets", tweetsRoutes(DataHelpers(db)));
-  
+
   // need to close database connection after using
 });
 
 
 // ------------------------------------------------------------------------------------------
-// TODO - STEP 6:
+// STEP 6:
 // If you haven't already: make sure your app works the way you did before you started.
 // Restart it, and bask in the glory of persistent data storage.
 // ------------------------------------------------------------------------------------------
