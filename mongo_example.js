@@ -8,22 +8,36 @@ MongoClient.connect(MONGODB_URI, (err, db) => {
     console.error(`Failed to connect": ${MONGODB_URI}`);
     throw err;
   }
-  
-  // ==> We have a connection to the "test-tweets" db,
-  //     starting here.
+
+  // ==> We have a connection to the "test-tweets" db, starting here.
   console.log(`Connected to mongodb: ${MONGODB_URI}`);
 
-  // ==> We can just get the results as an array all at once:
-  db.collection("tweets").find().toArray( (err, results) => {
-    // Lazy error handling:
+  
+  // ==> Refactored and wrapped as new, tweet-specific function:
+  function getTweets(callback) {
+    db.collection("tweets").find().toArray( (err, tweets) => {
+      // Lazy error handling:
+      if (err) {
+        return callback(err);
+      }
+      callback(null, tweets);
+    });
+  }
+
+  // ==> Later it can be invoked. Remember even if you pass
+  //     `getTweets` to another scope, it still has closure over
+  //     `db`, so it will still work. Yay!
+
+  getTweets( (err, tweets) => {
     if (err) {
       throw err;
     }
-  
-    console.log(".find chained to .toArray:\n", results);
-    // ==> This is inside this callback now. Think about it:
-    // This is now the "end of the program", right?
+
+    console.log("Logging each tweet: ");
+    for (let tweet of tweets) {
+      console.log(tweet);
+    }
+
     db.close();
   });
-
 });
