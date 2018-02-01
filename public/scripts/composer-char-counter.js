@@ -1,5 +1,3 @@
-console.log("Char counter loaded inside index.html!");
-
 $(document).ready( () => {
   // use this for step 6
   // let charCounter = $("body .container .new-tweet .counter");

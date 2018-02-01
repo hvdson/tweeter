@@ -39,9 +39,10 @@
 .tweet .tweet-text {
   margin: 2em;
   font-size: 14px;
+  overflow-wrap: break-word;
 }
 
-.tweet footer{
+.tweet footer {
   padding: 6px;
   font-size: 75%;
   border-top: 1px solid #eee;
