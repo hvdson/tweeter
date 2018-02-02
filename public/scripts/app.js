@@ -20,9 +20,6 @@ $(document).ready(function() {
     // <p> where the actual tweet message is
     let pTag = $("<p>").addClass("tweet-text").text(tweetData.content.text);
 
-    // this breaks it
-    // let pTag = $(`<p class=tweet-text>${tweetData.content.text}</p>`);
-
     // ---------------------------------------------------------------
     // <footer> contains time tweet was created & icons
     let footerTag = $("<footer>");
@@ -41,10 +38,6 @@ $(document).ready(function() {
   }
 
   function renderTweets(tweets) {
-    // now that AJAX is implemented - need to clear existing list first
-    // loops through tweets
-    
-    // other method for showing tweet first - prepend
     for (let tweet of tweets) {
       // calls createTweetElement for each tweet
       let newTweet = createTweetElement(tweet);
@@ -53,15 +46,6 @@ $(document).ready(function() {
     }
   }
   
-  //   for (let tweet = tweets.length - 1; tweet >= 0; tweet--) {
-  //     // calls createTweetElement for each tweet
-  //     let newTweet = createTweetElement(tweets[tweet]);
-  //     // takes return value and appends it to the tweets container
-  //     $('#tweets-container').append(newTweet);
-  //   }
-  // }
-
-
   // fetches tweets from /tweets page
   function loadTweets() {
     // $('#tweets-container').empty();
@@ -76,10 +60,7 @@ $(document).ready(function() {
     });
   }
 
-
-
   $(".new-tweet form").on("submit", function(event) {
-    
     // 1. prevent the default behaviour
     event.preventDefault();
     // 2. get the data of the form
@@ -110,24 +91,5 @@ $(document).ready(function() {
     $(".counter").text("140");
 
   });
-
   loadTweets();
-
 });
-
-
-// if (tweetLength > 0 && tweetLength <= 140) {
-//   // 4. submit using ajax
-  
-//   $.post("/tweets", data).done(function() {
-//     // 5. rerender the new tweet
-//     loadTweets();
-//   });
-// } else {
-//   // replace this later with toastr
-//   alert("U CAN'T TWEET THAT :(");
-// }
-
-// $(this).trigger("reset");
-// $(".counter").text("140");
-
