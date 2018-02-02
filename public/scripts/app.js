@@ -1,79 +1,6 @@
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
-
-// Test / driver code (temporary). Eventually will get this from the server.
-// const tweetData = {
-//   "user": {
-//     "name": "Newton",
-//     "avatars": {
-//       "small": "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_50.png",
-//       "regular": "https://vanillicon.com/788e533873e80d2002fa14e1412b4188.png",
-//       "large": "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_200.png"
-//     },
-//     "handle": "@SirIsaac"
-//   },
-//   "content": {
-//     "text": "If I have seen further it is by standing on the shoulders of giants"
-//   },
-//   "created_at": 1461116232227
-// };
-
-// const data = [
-//   {
-//     "user": {
-//       "name": "Newton",
-//       "avatars": {
-//         "small":   "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_50.png",
-//         "regular": "https://vanillicon.com/788e533873e80d2002fa14e1412b4188.png",
-//         "large":   "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_200.png"
-//       },
-//       "handle": "@SirIsaac"
-//     },
-//     "content": {
-//       "text": "If I have seen further it is by standing on the shoulders of giants"
-//     },
-//     "created_at": 1461116232227
-//   },
-//   {
-//     "user": {
-//       "name": "Descartes",
-//       "avatars": {
-//         "small":   "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc_50.png",
-//         "regular": "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc.png",
-//         "large":   "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc_200.png"
-//       },
-//       "handle": "@rd" },
-//     "content": {
-//       "text": "Je pense , donc je suis"
-//     },
-//     "created_at": 1461113959088
-//   },
-//   {
-//     "user": {
-//       "name": "Johann von Goethe",
-//       "avatars": {
-//         "small":   "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1_50.png",
-//         "regular": "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1.png",
-//         "large":   "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1_200.png"
-//       },
-//       "handle": "@johann49"
-//     },
-//     "content": {
-//       "text": "Es ist nichts schrecklicher als eine tätige Unwissenheit."
-//     },
-//     "created_at": 1461113796368
-//   }
-// ];
-
 $(document).ready(function() {
-
-// Handlebars for refactoring
-
-// Parameters: tweet object;
-// returns: jQuery object representing a new tweet in the same structure as <article class="tweet">
+  // Parameters: tweet object;
+  // returns: jQuery object representing a new tweet in the same structure as <article class="tweet">
   function createTweetElement (data) {
 
     // save to var for performance
@@ -99,7 +26,7 @@ $(document).ready(function() {
     // ---------------------------------------------------------------
     // <footer> contains time tweet was created & icons
     let footerTag = $("<footer>");
-    let timeOfTweet = $("<span>").addClass("time-of-tweet").text(tweetData.created_at);
+    let timeOfTweet = $("<span>").addClass("time-of-tweet").text(moment(tweetData.created_at).fromNow());
 
     let flag = $("<i>").addClass("fa fa-flag").attr("id", "flag").attr("aria-hidden", "true");
     let retweet = $("<i>").addClass("fa fa-retweet").attr("id", "retweet").attr("aria-hidden", "true");
@@ -113,20 +40,11 @@ $(document).ready(function() {
     return newTweet;
   }
 
-  // var $tweet = createTweetElement(tweetData);
-
-  // // Test / driver code (temporary)
-  // // to see what it looks like
-  // console.log($tweet);
-
-  // // to add it to the page so we can make sure it's got all the right elements, classes, etc.
-  // $('#tweets-container').append($tweet);
-
-
   function renderTweets(tweets) {
     // now that AJAX is implemented - need to clear existing list first
     // loops through tweets
     
+    // other method for showing tweet first - prepend
     for (let tweet of tweets) {
       // calls createTweetElement for each tweet
       let newTweet = createTweetElement(tweet);
@@ -134,9 +52,7 @@ $(document).ready(function() {
       $('#tweets-container').prepend(newTweet);
     }
   }
-
-  // other method for showing tweet first - traverse backwards
-
+  
   //   for (let tweet = tweets.length - 1; tweet >= 0; tweet--) {
   //     // calls createTweetElement for each tweet
   //     let newTweet = createTweetElement(tweets[tweet]);
@@ -146,14 +62,9 @@ $(document).ready(function() {
   // }
 
 
-  // renderTweets(data);
-
-
   // fetches tweets from /tweets page
   function loadTweets() {
-    
     // $('#tweets-container').empty();
-  
     // makes the request to /tweets
     $.ajax({
       url: '/tweets',
@@ -161,11 +72,12 @@ $(document).ready(function() {
       success: function (tweets) {
         console.log('Success: ', tweets);
         renderTweets(tweets);
-        // $button.replaceWith(morePostsHtml);
       }
     });
   }
- 
+
+
+
   $(".new-tweet form").on("submit", function(event) {
     
     // 1. prevent the default behaviour
@@ -176,7 +88,8 @@ $(document).ready(function() {
     // 3. add tweet to database using create new tweet element
     // console.log("Step 3: appending new tweet to database - ", data);
 
-    const tweetLength = $(this).find("#tweet-text-area").val().length;
+    const tweetText = $(this).find("#tweet-text-area").val();
+    const tweetLength = tweetText.length;
     
     // this is async, you're going to need to pass it a callback function.
     // INside the callback, update teh twee
@@ -184,22 +97,37 @@ $(document).ready(function() {
     // It's gone to the server and back.
 
     // 3. conditionals go here: check if data is not empty && data.length < 140
-    if (tweetLength > 0 && tweetLength <= 140) {
+    if (tweetText === "") {
       // 4. submit using ajax
-      
-      $.post("/tweets", data).done(function() {
-        // 5. rerender the new tweet
-        // $(#twe)
-        loadTweets();
-       
-      });
+      alert("NO TEXT - U CAN'T TWEET THAT :(");
+    } else if (tweetLength > 140) {
+      alert("TOO LONG - U CAN'T TWEET THAT :(");
     } else {
-      // replace this later with toastr
-      alert("U CAN'T TWEET THAT :(");
+      // 5. rerender the new tweet
+      $.post("/tweets", data).done(loadTweets);
     }
-
     $(this).trigger("reset");
     $(".counter").text("140");
 
   });
+
+  loadTweets();
+
 });
+
+
+// if (tweetLength > 0 && tweetLength <= 140) {
+//   // 4. submit using ajax
+  
+//   $.post("/tweets", data).done(function() {
+//     // 5. rerender the new tweet
+//     loadTweets();
+//   });
+// } else {
+//   // replace this later with toastr
+//   alert("U CAN'T TWEET THAT :(");
+// }
+
+// $(this).trigger("reset");
+// $(".counter").text("140");
+

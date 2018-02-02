@@ -6,16 +6,3 @@ $(document).ready( () => {
   });
 
 });
-
-// $(document).ready( () => {
-
-//   $("#nav-bar .compose").on("click", function (event) {
-//     // $(".new-tweet").fadeOut("slow");
-//     $(".new-tweet").promise().done( function () {
-      
-//       $(".new-tweet #tweet-text-area").focus();
-//     });
-    
-//   });
-
-// });

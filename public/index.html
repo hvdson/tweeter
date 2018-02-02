@@ -55,48 +55,15 @@
 
       <!-- had to change b/c app.js calls it tweets-container -->
       <section id="tweets-container">
-
-        <article class="tweet">
-          <!-- HEADER contains avatar image, username & handle, -->
-          <header>
-            <img class="avatar" src="https://pbs.twimg.com/profile_images/874276197357596672/kUuht00m_bigger.jpg">
-            <span class="username"> Donald Trump </span>
-            <span class="tweeter-handle"> @RealDonaldTrump </span>
-          </header> 
-
-          <!-- where the actual tweet message is -->
-          <p class="tweet-text">Why would Kim Jong-un insult me by calling me "old," when I would NEVER call him "short and fat?" Oh well, I try so hard to be his friend - and maybe someday that will happen!</p>
-
-          <!-- FOOTER contains time tweet was created & icons-->
-          <footer>
-            <span class="time-of-tweet"> 10 days ago </span>
-            <!-- have to put in reverse order for float to work -->
-            <i id="flag" class="fa fa-flag" aria-hidden="true"></i>
-            <i id="retweet" class="fa fa-retweet" aria-hidden="true"></i>
-            <i id="like" class="fa fa-heart" aria-hidden="true"></i>
-          </footer>
-
-        </article>
-
+        <!-- Tweets will be appended inside of this element -->
       </section>
-      
-      <!-- For testing scrolling -->
-      <!-- <section>
-        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do<br> 
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim<br>
-          ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut<br> 
-          aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit<br>
-          in voluptate velit esse cillum dolore eu fugiat nulla pariatur.<br>
-          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui<br>
-          officia deserunt mollit anim id est laborum."</p>
-      </section> -->
-
     </main>
 
     <script type="text/javascript" src="/scripts/app.js"></script>
     <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
     <script type="text/javascript" src="/scripts/toggle-compose.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
     <!-- <script type="text/javascript" src="/scripts/render-tweet-to-page.js"></script> -->
 
   </body>
