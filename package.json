@@ -15,8 +15,13 @@
     "chance": "^1.0.2",
     "express": "^4.13.4",
     "md5": "^2.1.0",
+<<<<<<< HEAD
     "moment": "^2.20.1",
     "mongodb": "^2.2.34"
+=======
+    "mongodb": "^2.2.34",
+    "node-sass-middleware": "^0.11.0"
+>>>>>>> feature/scss
   },
   "devDependencies": {
     "nodemon": "^1.9.2"
