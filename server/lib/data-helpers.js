@@ -25,7 +25,6 @@ module.exports = function makeDataHelpers(db) {
         if (err) {
           callback(err);
         }
-        console.log("Tweets bin got send :)");
         callback(null);
       });
     },
@@ -47,7 +46,6 @@ module.exports = function makeDataHelpers(db) {
           callback(err);
         }
         // assuming tweets is an entire array - .sort() sorts the array IN PLACE
-        console.log("Tweets bin get got :)");
         callback(null, tweets);
         // callback(null, tweets.sort(sortNewestFirst));
         // tweets are received as an Array then sorted
