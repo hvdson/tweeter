@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-=======
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
-
->>>>>>> feature/scss
 $(document).ready(function() {
   // Parameters: tweet object;
   // returns: jQuery object representing a new tweet in the same structure as <article class="tweet">
@@ -45,11 +36,6 @@ $(document).ready(function() {
 
     return newTweet;
   }
-<<<<<<< HEAD
-
-=======
-  
->>>>>>> feature/scss
   function renderTweets(tweets) {
     for (let tweet of tweets) {
       // calls createTweetElement for each tweet
