@@ -40,11 +40,20 @@
       float: right;
       margin: auto 2px;
       display: none; }
+    .tweet footer #like-count {
+      /* width: 15px; */
+      text-align: right;
+      float: right;
+      margin-right: 2px;
+      display: none; }
     .tweet footer #retweet:hover {
       color: green; }
     .tweet footer #like:hover {
       color: red; }
     .tweet footer #flag:hover {
       color: lightblue; }
+    .tweet:hover #like-count {
+      color: rgb(30, 48, 54); 
+      display: inline-block; }
 
 /*# sourceMappingURL=tweets.css.map */
