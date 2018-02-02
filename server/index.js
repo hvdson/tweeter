@@ -7,7 +7,20 @@ const express       = require("express");
 const bodyParser    = require("body-parser");
 const app           = express();
 
+const path = require("path");
+const connect = require("connect");
+const sassMiddleware = require("node-sass-middleware");
+
+app.use(sassMiddleware({
+  src: path.join(__dirname, "../sass"),
+  dest: path.join(__dirname, "../public/styles"),
+  debug: true,
+  outputStyle: "compressed",
+  prefix: "/styles"
+}));
+
 app.use(bodyParser.urlencoded({ extended: true }));
+// must be BEFORE express.static for sass to work!
 app.use(express.static("public"));
 
 // The in-memory database of tweets. It's a basic object with an array in it.
@@ -59,5 +72,5 @@ MongoClient.connect(MONGODB_URI, (err, db) => {
 // ------------------------------------------------------------------------------------------
 
 app.listen(PORT, () => {
-  console.log("Example app listening on port " + PORT);
+  console.log("listening on port " + PORT);
 });
