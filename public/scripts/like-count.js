@@ -6,15 +6,18 @@ $(document).ready( () => {
   $("#tweets-container").on("click", "#like", function (event) {
     // const counter = $(this);
     // "this" is more useful than using event b/c need to get
-    const likeCount = $(this).data("like-toggle");
+    const isLiked = $(this).data("like-toggle");
+    const likeButton = $(this);
 
-    if (!likeCount) {
-      $(this).data("like-toggle", true);
+    if (!isLiked) {
+      likeButton.data("like-toggle", true);
+      likeButton.addClass("like-toggle");
     } else {
-      $(this).data("like-toggle", false);
+      likeButton.data("like-toggle", false);
+      likeButton.removeClass("like-toggle");
     }
 
-    console.log(likeCount);
+    console.log($(this));
 
     // console.log(counter);
   });
