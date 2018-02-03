@@ -10,14 +10,15 @@ $(document).ready( () => {
     const likeButton = $(this);
 
     if (!isLiked) {
+
       likeButton.data("like-toggle", true);
       likeButton.addClass("like-toggle");
+      $(this).parent().find("#like-count").text("1");
     } else {
       likeButton.data("like-toggle", false);
       likeButton.removeClass("like-toggle");
+      $(this).parent().find("#like-count").text("0");
     }
-
-    console.log($(this));
 
     // console.log(counter);
   });

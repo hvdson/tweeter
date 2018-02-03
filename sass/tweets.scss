@@ -54,7 +54,7 @@
   /* width: 15px; */
   text-align: right;
   float: right;
-  margin-right: 2px;
+  margin-right: 4px;
   display: none; 
 }
 .tweet footer #retweet:hover {
@@ -65,14 +65,14 @@
 }
 
 .like-toggle {
-  color: red; 
+  color: red;
 }
   
 .tweet footer #flag:hover {
   color: lightblue; 
 }
+
 .tweet:hover #like-count {
-  color: rgb(30, 48, 54); 
   display: inline-block; 
 }
 
