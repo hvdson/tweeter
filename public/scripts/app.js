@@ -1,4 +1,6 @@
 $(document).ready(function() {
+  // hack-y way to get close button on toastr notification
+  toastr.options.closeButton = true;
   // Parameters: tweet object;
   // returns: jQuery object representing a new tweet in the same structure as <article class="tweet">
   function createTweetElement (data) {
@@ -71,15 +73,16 @@ $(document).ready(function() {
     // 4. conditionals go here: check if data is not empty && data.length < 140
     if (tweetText === "") {
       // 5. submit using ajax
-      alert("NO TEXT - U CAN'T TWEET THAT :(");
+      toastr.error("Please enter a tweet! :(");
     } else if (tweetLength > 140) {
-      alert("TOO LONG - U CAN'T TWEET THAT :(");
+      // alert("TOO LONG - U CAN'T TWEET THAT :(");
+      toastr.error("Tweet too long! (max 140 chars) :(");
     } else {
       // 6. rerender the new tweet
+      $(this).trigger("reset");
+      $(".counter").text("140");
       $.post("/tweets", data).done(loadTweets);
     }
-    $(this).trigger("reset");
-    $(".counter").text("140");
   });
   // allows new tweets to be displayed right away
   loadTweets();
