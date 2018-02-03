@@ -2,7 +2,7 @@ require('dotenv').config();
 "use strict";
 
 // Basic express setup:
-const PORT          = process.env.PORT || 8080;
+const PORT          = 8080;
 const express       = require("express");
 const bodyParser    = require("body-parser");
 const app           = express();
@@ -32,7 +32,7 @@ app.use(express.static("public"));
 //  pass the Mongo db into the server/lib/data-helpers.js factory function instead.
 // ------------------------------------------------------------------------------------------
 const MongoClient = require("mongodb").MongoClient;
-const MONGODB_URI = process.env.DB_MONGODB_URI;
+const MONGODB_URI = process.env.MONGODB_URI;
 const DataHelpers = require("./lib/data-helpers.js");
 const tweetsRoutes = require("./routes/tweets");
 
