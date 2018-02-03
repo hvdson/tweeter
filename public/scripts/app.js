@@ -37,10 +37,7 @@ $(document).ready(function() {
 
     return newTweet;
   }
-<<<<<<< HEAD
-=======
   
->>>>>>> feature/stretch-like-count
   function renderTweets(tweets) {
     for (let tweet of tweets) {
       // calls createTweetElement for each tweet
