@@ -49,7 +49,8 @@ $(document).ready(function() {
   
   // fetches tweets from /tweets page
   function loadTweets() {
-    // $('#tweets-container').empty();
+    // have to clear container first!
+    $('#tweets-container').empty();
     // makes the request to /tweets
     $.ajax({
       url: '/tweets',
@@ -78,14 +79,14 @@ $(document).ready(function() {
     // The callback function in this case will only get called after the ajax HTTP request is done
     // It's gone to the server and back.
 
-    // 3. conditionals go here: check if data is not empty && data.length < 140
+    // 4. conditionals go here: check if data is not empty && data.length < 140
     if (tweetText === "") {
-      // 4. submit using ajax
+      // 5. submit using ajax
       alert("NO TEXT - U CAN'T TWEET THAT :(");
     } else if (tweetLength > 140) {
       alert("TOO LONG - U CAN'T TWEET THAT :(");
     } else {
-      // 5. rerender the new tweet
+      // 6. rerender the new tweet
       $.post("/tweets", data).done(loadTweets);
     }
     $(this).trigger("reset");
