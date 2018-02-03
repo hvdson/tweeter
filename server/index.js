@@ -32,7 +32,7 @@ app.use(express.static("public"));
 //  pass the Mongo db into the server/lib/data-helpers.js factory function instead.
 // ------------------------------------------------------------------------------------------
 const MongoClient = require("mongodb").MongoClient;
-const MONGODB_URI = "mongodb://localhost:27017/tweeter";
+const MONGODB_URI = "mongodb://heroku_sw5jl25l:9mhf2psbtm2q98jsrjs18mmi44@ds121898.mlab.com:21898/heroku_sw5jl25l";
 const DataHelpers = require("./lib/data-helpers.js");
 const tweetsRoutes = require("./routes/tweets");
 
