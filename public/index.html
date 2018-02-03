@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
     <!-- Meta Information -->
     <title>Tweeter - Home Page</title>
 
@@ -18,14 +18,10 @@
     <link rel="stylesheet" href="/styles/styles.css" type="text/css" />
 
     <!-- External JS -->
-    <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
-
-    <!-- App JS -->
-    
+    <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script> 
   </head>
 
   <body>
-
     <!-- Top nav bar (fixed) -->
     <nav id="nav-bar">
       <img class="logo" src="/images/bird.png">
@@ -35,7 +31,7 @@
 
     <!-- Page-specific (main) content here -->
     <main class="container">
-      
+
       <section class="new-tweet">
 
         <h2>Compose Tweet</h2>
@@ -49,10 +45,11 @@
 
       </section>
 
-      <!-- had to change b/c app.js calls it tweets-container -->
+      <!-- Tweets will be appended inside of this element -->
       <section id="tweets-container">
-        <!-- Tweets will be appended inside of this element -->
+        
       </section>
+
     </main>
 
     <script type="text/javascript" src="/scripts/app.js"></script>
@@ -60,8 +57,5 @@
     <script type="text/javascript" src="/scripts/toggle-compose.js"></script>
     <script type="text/javascript" src="/scripts/like-count.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
-    <!-- <script type="text/javascript" src="/scripts/render-tweet-to-page.js"></script> -->
-
   </body>
-
 </html>
