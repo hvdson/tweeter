@@ -40,10 +40,13 @@ Tweeter is a simple, single-page Twitter clone with similar client-side styling 
 ###New Tweet:
 
 - The textarea implements a character counter which limits users to 140 chars
-- !["Screenshot of new-tweet"](https://github.com/hvdson/tweeter/blob/master/docs/newtweet.png)
+
+!["Screenshot of new-tweet"](https://github.com/hvdson/tweeter/blob/master/docs/newtweet.png)
 
 - added extra feature using toastr to display an error notification when user enters a tweet too long or too short
+- 
 !["Screenshot of toastr error too short"](https://github.com/hvdson/tweeter/blob/master/docs/toastr-tweet-short.png)
+
 !["Screenshot of toastr error too long"](https://github.com/hvdson/tweeter/blob/master/docs/toastr-tweet-long.png)
 
 ###Tweets:
