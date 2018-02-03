@@ -27,7 +27,7 @@ $(document).ready(function() {
 
     let flag = $("<i>").addClass("fa fa-flag").attr("id", "flag").attr("aria-hidden", "true");
     let retweet = $("<i>").addClass("fa fa-retweet").attr("id", "retweet").attr("aria-hidden", "true");
-    let like = $("<i>").addClass("fa fa-heart").attr("id", "like").attr("aria-hidden", "true");
+    let like = $("<i>").addClass("fa fa-heart").attr("id", "like").attr("aria-hidden", "true").data("like-toggle", false);
     let likeCount = $("<span>").attr("id", "like-count").text("0");
 
     footerTag.append(timeOfTweet, flag, retweet, likeCount, like);
