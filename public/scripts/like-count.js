@@ -7,7 +7,7 @@ $(document).ready( () => {
     // const counter = $(this);
     // "this" is more useful than using event b/c need to get
     const likeCount = $(this).data("like-toggle");
-    
+
     if (!likeCount) {
       $(this).data("like-toggle", true);
     } else {

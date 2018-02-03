@@ -37,7 +37,7 @@ $(document).ready(function() {
 
     return newTweet;
   }
-
+  
   function renderTweets(tweets) {
     for (let tweet of tweets) {
       // calls createTweetElement for each tweet
