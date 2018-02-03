@@ -17,10 +17,11 @@
     "body-parser": "^1.15.2",
     "chance": "^1.0.2",
     "connect": "^3.6.5",
+    "dotenv": "^5.0.0",
     "express": "^4.13.4",
     "md5": "^2.1.0",
-    "mongodb": "^2.2.34",
     "moment": "^2.20.1",
+    "mongodb": "^2.2.34",
     "node-sass-middleware": "^0.11.0"
   },
   "devDependencies": {

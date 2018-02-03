@@ -1,6 +1,7 @@
 "use strict";
 
 // Basic express setup:
+require('dotenv').config();
 
 const PORT          = process.env.PORT || 8080;
 const express       = require("express");
@@ -32,7 +33,7 @@ app.use(express.static("public"));
 //  pass the Mongo db into the server/lib/data-helpers.js factory function instead.
 // ------------------------------------------------------------------------------------------
 const MongoClient = require("mongodb").MongoClient;
-const MONGODB_URI = "mongodb://heroku_sw5jl25l:9mhf2psbtm2q98jsrjs18mmi44@ds121898.mlab.com:21898/heroku_sw5jl25l";
+const MONGODB_URI = process.env.DB_MONGODB_URI;
 const DataHelpers = require("./lib/data-helpers.js");
 const tweetsRoutes = require("./routes/tweets");
 
